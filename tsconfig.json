@@ -10,7 +10,7 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
   // "vueCompilerOptions": {
   //   "plugins": [
   //     "@vue-macros/volar/define-options",

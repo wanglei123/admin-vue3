@@ -16,8 +16,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": [],
-    "moduleResolution": "Bundler",
-    "noImplicitAny": false
-  }
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+  },
 }

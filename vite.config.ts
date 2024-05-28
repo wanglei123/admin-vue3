@@ -13,10 +13,10 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import Layouts from 'vite-plugin-vue-layouts'
 import UnoCSS from 'unocss/vite'
-
 import { VitePWA } from 'vite-plugin-pwa'
 
 import { viteMockServe } from 'vite-plugin-mock'
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -47,11 +47,11 @@ export default defineConfig({
         // 'vue-router'
         VueRouterAutoImports,
         '@vueuse/core'
-      ]
+      ],
     }),
     Components({
       directoryAsNamespace: true,
-      collapseSamePrefixes: true
+      collapseSamePrefixes: true,
     }),
     Layouts({
       layoutsDirs: 'src/layouts',
