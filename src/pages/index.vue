@@ -14,12 +14,16 @@
   <div>
     <component :is="Icon" :icon="iconRef"></component>
   </div>
+  <SvgIcon type="bangonglou" class="text-blue text-2xl w-5 h-5"/>
+
 </template>
 
 <script setup lang="ts">
 import { registerSW } from 'virtual:pwa-register'
 import { Icon, loadIcons } from '@iconify/vue';
 import json from '@iconify/json/json/mdi.json'
+import SvgIcon from '@/components/SvgIcon.vue'
+
 
 const arr = Object.keys(json.icons)
 const iconRef = ref(arr[0])

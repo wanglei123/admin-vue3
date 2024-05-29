@@ -11,7 +11,7 @@ import 'element-plus/dist/index.css'
 // import 'reset-css'
 // import '@unocss/reset/normalize.css'
 import './assets/main.css'
-
+import 'virtual:svg-icons-register'
 
 
 const app = createApp(App)
