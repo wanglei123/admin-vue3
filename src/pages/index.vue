@@ -25,6 +25,9 @@
   <div>
     <IconFontIcon type="weibolu" class="w-3 h-4 text-blue text-3xl" />
   </div>
+  <div>
+    <IconList />
+  </div>
 
 
 </template>
@@ -33,7 +36,6 @@
 import { registerSW } from 'virtual:pwa-register'
 import { Icon, loadIcons } from '@iconify/vue';
 import json from '@iconify/json/json/mdi.json'
-import IconFontIcon from '@/components/IconFontIcon.vue'
 
 
 const arr = Object.keys(json.icons)
