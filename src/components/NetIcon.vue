@@ -3,23 +3,13 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-  url: {
-    type: String,
-    default: ''
-  },
-  prefix: {
-    type: String,
-    default: 'icon-'
-  },
-  fontFamily: {
-    type: String,
-    default: 'iconfont'
-  },
-  type: {
-    type: String,
-    default: ''
-  }
+import type {NetIconProps} from '@/components/types'
+
+const props = withDefaults(defineProps<NetIconProps>(), {
+  url: '',
+  prefix: 'icon-',
+  fontFamily: 'iconfont',
+  type: ''
 })
 
 onBeforeMount(() => {

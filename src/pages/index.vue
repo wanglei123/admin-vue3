@@ -19,6 +19,12 @@
   <div>
     <NetIcon url="//at.alicdn.com/t/c/font_4565743_huu4z2efdn4.css" type="xiyifang" class="w-5 h-5 text-red text-3xl" />
   </div>
+  <div>
+    <IconFontIcon type="kongzhonghuayuan" class="w-5 h-5 text-red text-3xl" />
+  </div>
+  <div>
+    <IconFontIcon type="weibolu" class="w-3 h-4 text-blue text-3xl" />
+  </div>
 
 
 </template>
@@ -27,6 +33,7 @@
 import { registerSW } from 'virtual:pwa-register'
 import { Icon, loadIcons } from '@iconify/vue';
 import json from '@iconify/json/json/mdi.json'
+import IconFontIcon from '@/components/IconFontIcon.vue'
 
 
 const arr = Object.keys(json.icons)
