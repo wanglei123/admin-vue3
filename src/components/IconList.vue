@@ -1,9 +1,18 @@
 <template>
+  <div>
+    <el-switch
+      v-model="copyFlag"
+      class="mb-2"
+      inactive-text="复制svg图标"
+      active-text="复制图标名称"
+    />
+  </div>
   <ul class="flex flex-wrap border rounded">
     <li v-for="(i) in iconData"
         :key="index"
+        @click="handleClick(i)"
         class="w-1/8 border-r border-b flex flex-col justify-center items-center cursor-pointer hover:bg-sky-100">
-      <component :is="Icon" :icon="'ep:' + i"></component>
+      <component :is="Icon" :icon="'ep:' + i" class="text-3xl mb-3"></component>
       <div>{{convertToCamelCase(i)}}</div>
     </li>
   </ul>
@@ -11,12 +20,34 @@
 </template>
 
 <script setup lang="ts">
+import { ElMessage } from 'element-plus'
 import {loadIcons, Icon} from '@iconify/vue'
 import iconData from './icon-ep.json'
+import { useClipboard } from '@vueuse/core'
+
+// true 复制name
+// false 复制svg
+const copyFlag = ref(true)
+const source = ref('')
+const { text, copy, copied, isSupported } = useClipboard({ source })
 
 onBeforeMount(async () => {
   await loadIcons()
 })
+
+const handleClick = async (i: string) => {
+  if(!copyFlag.value){
+    const res = await loadIcons('ep:' + i)
+  } else {
+    source.value = convertToCamelCase(i)
+    copy()
+    copied && ElMessage({
+      message: '复制成功',
+      type: 'success',
+    })
+  }
+
+}
 
 function convertToCamelCase(str) {
   // 但是上面的代码只会将短横线后面的字符变为大写，而整个单词的首字母仍然是小写
