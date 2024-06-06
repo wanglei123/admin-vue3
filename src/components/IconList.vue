@@ -16,12 +16,14 @@
       <div>{{convertToCamelCase(i)}}</div>
     </li>
   </ul>
-
+  <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" transform="translate(0,0) rotate(0)  ">
+    <path fill="currentColor" d="M512 832a320 320 0 1 0 0-640a320 320 0 0 0 0 640m0 64a384 384 0 1 1 0-768a384 384 0 0 1 0 768"/><path fill="currentColor" d="m292.288 824.576l55.424 32l-48 83.136a32 32 0 1 1-55.424-32zm439.424 0l-55.424 32l48 83.136a32 32 0 1 0 55.424-32zM512 512h160a32 32 0 1 1 0 64H480a32 32 0 0 1-32-32V320a32 32 0 0 1 64 0zM90.496 312.256A160 160 0 0 1 312.32 90.496l-46.848 46.848a96 96 0 0 0-128 128L90.56 312.256zm835.264 0A160 160 0 0 0 704 90.496l46.848 46.848a96 96 0 0 1 128 128z"/>
+  </svg>
 </template>
 
 <script setup lang="ts">
 import { ElMessage } from 'element-plus'
-import {loadIcons, Icon} from '@iconify/vue'
+import {loadIcon,loadIcons, Icon} from '@iconify/vue'
 import iconData from './icon-ep.json'
 import { useClipboard } from '@vueuse/core'
 
@@ -35,17 +37,26 @@ onBeforeMount(async () => {
   await loadIcons()
 })
 
+function objectToSvg(svgObject: any){
+  const {body, hFlip, height, left, rotate, top, vFlip, width} = svgObject
+  const svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" transform="translate(${left},${top}) rotate(${rotate})${hFlip ? 'scale(-1, 1)' : ''} ${vFlip ? 'scale(-1, 1)' : ''} ">
+        ${body}
+        </svg>`
+  return svgString
+}
+
 const handleClick = async (i: string) => {
   if(!copyFlag.value){
-    const res = await loadIcons('ep:' + i)
+    const res = await loadIcon('ep:' + i)
+    source.value = objectToSvg(res)
   } else {
     source.value = convertToCamelCase(i)
-    copy()
-    copied && ElMessage({
-      message: '复制成功',
-      type: 'success',
-    })
   }
+  copy()
+  copied && ElMessage({
+    message: '复制成功',
+    type: 'success',
+  })
 
 }
 
