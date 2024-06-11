@@ -8,12 +8,15 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
-    IconFontIcon: typeof import('./src/components/IconFontIcon.vue')['default']
-    IconList: typeof import('./src/components/IconList.vue')['default']
-    NetIcon: typeof import('./src/components/NetIcon.vue')['default']
+    IconFontIcon: typeof import('./src/components/Icon/IconFontIcon.vue')['default']
+    IconList: typeof import('./src/components/Icon/IconList.vue')['default']
+    IconNetIcon: typeof import('./src/components/Icon/NetIcon.vue')['default']
+    IconReloadPrompt: typeof import('./src/components/Icon/ReloadPrompt.vue')['default']
+    IconSvgIcon: typeof import('./src/components/Icon/SvgIcon.vue')['default']
+    NetIcon: typeof import('./src/components/Icon/NetIcon.vue')['default']
     ReloadPrompt: typeof import('./src/components/ReloadPrompt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']
+    SvgIcon: typeof import('./src/components/Icon/SvgIcon.vue')['default']
   }
 }

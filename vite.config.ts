@@ -48,7 +48,7 @@ export default defineConfig({
       ],
     }),
     Components({
-      directoryAsNamespace: true,
+      directoryAsNamespace: false,
       collapseSamePrefixes: true,
     }),
     Layouts({
@@ -95,6 +95,17 @@ export default defineConfig({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
       // 指定symbolId格式
       symbolId: 'icon-[dir]-[name]',
+      svgoOptions: {
+        full: true,
+        plugins: [
+          {
+            name: 'removeAttrs',
+            params: {
+              attrs: 'fill'
+            }
+          }
+        ]
+      }
     }),
   ],
   resolve: {

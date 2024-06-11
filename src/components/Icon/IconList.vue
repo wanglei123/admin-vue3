@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { ElMessage } from 'element-plus'
-import {loadIcon,loadIcons, Icon} from '@iconify/vue'
+import { Icon, loadIcon } from '@iconify/vue'
 import iconData from './icon-ep.json'
 import { useClipboard } from '@vueuse/core'
 
@@ -32,15 +32,14 @@ const source = ref('')
 const { text, copy, copied, isSupported } = useClipboard({ source })
 
 onBeforeMount(async () => {
-  await loadIcons()
+  await loadIcon()
 })
 
 function objectToSvg(svgObject: any){
   const {body, hFlip, height, left, rotate, top, vFlip, width} = svgObject
-  const svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" transform="translate(${left},${top}) rotate(${rotate})${hFlip ? 'scale(-1, 1)' : ''} ${vFlip ? 'scale(-1, 1)' : ''} ">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" transform="translate(${left},${top}) rotate(${rotate})${hFlip ? 'scale(-1, 1)' : ''} ${vFlip ? 'scale(-1, 1)' : ''} ">
         ${body}
         </svg>`
-  return svgString
 }
 
 const handleClick = async (i: string) => {

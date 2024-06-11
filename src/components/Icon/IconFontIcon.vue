@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import type {NetIconProps} from '@/components/types'
-import NetIcon from '@/components/NetIcon.vue'
+import type {NetIconProps} from '@/components/Icon/types'
+import NetIcon from '@/components/Icon/NetIcon.vue'
 
 const props = withDefaults(defineProps<NetIconProps>(), {
   url: '/font_4565743_huu4z2efdn4',

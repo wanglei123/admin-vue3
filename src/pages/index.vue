@@ -14,7 +14,7 @@
   <div>
     <component :is="Icon" :icon="iconRef"></component>
   </div>
-  <SvgIcon type="bangonglou" class="text-blue text-2xl w-5 h-5"/>
+  <SvgIcon type="bangonglou" class="text-red text-2xl w-5 h-5"/>
   <div>netIcon</div>
   <div>
     <NetIcon url="//at.alicdn.com/t/c/font_4565743_huu4z2efdn4.css" type="xiyifang" class="w-5 h-5 text-red text-3xl" />
@@ -28,6 +28,13 @@
   <div>
     <IconList />
   </div>
+  <div>
+    {{ t('hello') }}
+  </div>
+  <select v-model="locale">
+    <option value="en">en</option>
+    <option value="zh">中文</option>
+  </select>
 
 
 </template>
@@ -36,10 +43,14 @@
 import { registerSW } from 'virtual:pwa-register'
 import { Icon, loadIcons } from '@iconify/vue';
 import json from '@iconify/json/json/mdi.json'
+import {useI18n} from 'vue-i18n'
 
 
 const arr = Object.keys(json.icons)
 const iconRef = ref(arr[0])
+const {t, locale} = useI18n()
+
+locale.value = 'zh'
 
 // icons 预加载 从网络上读取数据
 onBeforeMount(async () => {
