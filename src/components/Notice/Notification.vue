@@ -24,12 +24,14 @@ interface NotificationProps extends Partial<BadgeProps> {
   iconSize?: number
   iconColor?: string
   size: number
+  scale: number
   color: string
 }
 
 withDefaults(defineProps<NotificationProps>(), {
   icon: 'ep:bell',
-  size: 14,
+  size: 12,
+  scale: 1,
   color: ''
 })
 
