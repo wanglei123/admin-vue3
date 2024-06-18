@@ -44,6 +44,7 @@ import { registerSW } from 'virtual:pwa-register'
 import { Icon, loadIcons } from '@iconify/vue';
 import json from '@iconify/json/json/mdi.json'
 import {useI18n} from 'vue-i18n'
+import { RouterLink } from 'vue-router/auto'
 
 
 const arr = Object.keys(json.icons)
