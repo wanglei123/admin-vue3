@@ -14,6 +14,7 @@ declare module 'vue' {
     IconNetIcon: typeof import('./src/components/Icon/NetIcon.vue')['default']
     IconReloadPrompt: typeof import('./src/components/Icon/ReloadPrompt.vue')['default']
     IconSvgIcon: typeof import('./src/components/Icon/SvgIcon.vue')['default']
+    Menu: typeof import('./src/components/Menu/Menu.vue')['default']
     NetIcon: typeof import('./src/components/Icon/NetIcon.vue')['default']
     Notice: typeof import('./src/components/Notice/Notice.vue')['default']
     NoticeMessage: typeof import('./src/components/notice/notice-message.vue')['default']
@@ -22,6 +23,7 @@ declare module 'vue' {
     ReloadPrompt: typeof import('./src/components/ReloadPrompt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SubMenu: typeof import('./src/components/Menu/SubMenu.vue')['default']
     SvgIcon: typeof import('./src/components/Icon/SvgIcon.vue')['default']
   }
 }
